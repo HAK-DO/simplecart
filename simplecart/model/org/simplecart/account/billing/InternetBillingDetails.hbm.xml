@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : InternetPayment.hbm.xml
+    Created on : January 22, 2005, 6:52 PM
+    Author     : Daniel Watrous
+    Description:
+        Hibernate mapping document for InternetSalesOrder class
+-->
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping package="org.simplecart.account.billing" >
+
+<class name="InternetBillingDetails"
+	   table="INTERNET_BILLING_DETAILS"
+	   lazy="true">
+
+	<!-- Common id property. -->
+	<id name="id"
+		type="long"
+		column="INTERNET_BILLING_DETAILS_ID"
+		unsaved-value="null"
+		access="org.hibernate.auction.persistence.DirectSetAccessor">
+		<generator class="native"/>
+	</id>
+
+	<!-- We can't change the creation time, so map it with update="false". -->
+	<property   name="dateCreated"
+				column="DATE_CREATED"
+				type="java.util.Date"
+				update="false"
+				not-null="true"
+				access="org.hibernate.auction.persistence.DirectSetAccessor"/>
+
+	<!-- Bidirectional, required as BillingDetails is USER_ID NOT NULL. This is also
+	     a read-only property that will never be updated. -->
+	<many-to-one name="customer"
+				 class="org.simplecart.account.Customer"
+				 column="CUSTOMER_ID"
+				 update="false"
+				 outer-join="false"
+				 access="org.hibernate.auction.persistence.DirectSetAccessor"
+				 foreign-key="FK1_CUSTOMER_ID"/>
+
+	<!-- CreditCard subclass mapping to its own table, normalized.
+		 CreditCard is immutable, we map all properties with update="false" -->
+	<joined-subclass name="CreditCardBillingDetails"
+					 table="CREDIT_CARD_BILLING_DETAILS"
+					 lazy="true">
+
+		<key column="CREDIT_CARD_ID" foreign-key="FK1_CREDIT_CARD_ID"/>
+
+		<property name="type"
+                          type="org.hibernate.auction.persistence.CreditCardTypeUserType"
+                          column="CC_TYPE"
+                          update="false"
+                          not-null="true"
+                          access="org.hibernate.auction.persistence.DirectSetAccessor"/>
+
+		<property name="number"
+                          type="string"
+                          column="CC_NUMBER"
+                          length="16"
+                          not-null="true"
+                          access="org.hibernate.auction.persistence.DirectSetAccessor"/>
+
+		<property name="expMonth"
+                          type="string"
+                          column="EXP_MONTH"
+                          length="2"
+                          not-null="true"
+                          update="false"
+                          access="org.hibernate.auction.persistence.DirectSetAccessor"/>
+
+		<property name="expYear"
+                          type="string"
+                          column="EXP_YEAR"
+                          length="4"
+                          not-null="true"
+                          update="false"
+                          access="org.hibernate.auction.persistence.DirectSetAccessor"/>
+
+	</joined-subclass>
+
+	<!-- BankAccount subclass mapping to its own table, normalized. -->
+	<joined-subclass name="PayPalBillingDetails"
+					 table="PAYPAL_BILLING_DETAILS"
+					 lazy="true">
+
+		<key column="PAYPAL_BILLING_ID" foreign-key="FK1_PAYPAL_BILLING_ID"/>
+
+
+	</joined-subclass>
+
+</class>
+
+</hibernate-mapping>

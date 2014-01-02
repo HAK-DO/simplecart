@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : struts-config.xml
+    Created on : January 12, 2005, 2:18 PM
+    Author     : Daniel Watrous
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE struts-config PUBLIC 
+    '-//Apache Software Foundation//DTD Struts Configuration 1.2//EN' 
+    'http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd'>
+
+<struts-config>
+    <display-name>
+        <![CDATA[
+        Simple Cart Shopcart Application
+        ]]>
+    </display-name>
+    <description>
+        <![CDATA[
+        A Basic Shopcart
+        ]]>
+    </description>
+
+    <!-- ********** Form Bean Definitions ********** -->
+    <form-beans>
+
+        <!-- Login Form -->
+        <form-bean  name="loginForm"
+                    type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="username" type="java.lang.String"/>
+            <form-property name="password" type="java.lang.String"/>
+        </form-bean>
+
+    </form-beans>
+    
+    <!-- ********** Global Forward Definitions ********** -->
+    <global-forwards>
+        <forward name="welcome" path="/Welcome.do"/>
+        <forward name="administrationLogin" path="/AdministratorLogin.do"/>
+        <forward name="publicSite" path="/public/Welcome.do"/>
+        <forward name="logoff" path="/Logoff.do"/>
+        <forward name="error" path="/error.jsp"/>
+    </global-forwards>
+    
+    <!-- ********** Action Mapping Definitions ********** -->
+    <action-mappings>
+        <!-- Show welcome page -->
+        <action path="/Welcome"
+                type="org.simplecart.webapp.actions.WelcomeAction">
+            <forward name="failure" path="error"/>
+            <forward name="success" path="/welcome.jsp"/>
+        </action>
+
+        <!-- initialize database -->
+        <action path="/InitializeDatabase"
+                type="org.simplecart.webapp.actions.InitializeDatabaseAction">
+            <forward name="failure" path="error"/>
+            <forward name="success" path="/welcome.jsp"/>
+        </action>
+
+        <!-- Show login page -->
+        <action
+          path="/AdministratorLogin"
+          forward="/login.jsp"/>
+
+        <action path="/SubmitAdministratorLogin"
+                type="org.simplecart.webapp.actions.administration.AdministratorLoginAction"
+                name="loginForm"
+               input="/login.jsp">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="/administration/Welcome.do"/>
+        </action>
+
+    </action-mappings>
+    
+    <controller pagePattern="$M$P"/>
+
+    <message-resources
+            parameter="org.simplecart.webapp.ApplicationResources"/>
+
+    <message-resources
+        parameter="org.simplecart.webapp.ImageResources"
+        key="images"/>
+
+  <!-- ========== Plug Ins Configuration ================================== -->
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames"
+                     value="/WEB-INF/validation.xml,/WEB-INF/validator-rules.xml"/>
+  </plug-in>
+
+</struts-config>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Copyright (c) 2005, Daniel Watrous
+	All rights reserved.
+
+	Redistribution and use in source and binary forms, with or 
+	without modification, are governed by the license found in
+	the following places:
+	license.txt included with this distribution, or
+	http://www.simplecart.org/license.html
+	
+    Document   : InternetLineItem.hbm.xml   $LastChangedRevision: 64 $ $LastChangedDate: 2005-04-06 18:24:13 -0600 (Wed, 06 Apr 2005) $
+    Created on : January 22, 2005, 6:52 PM
+    Author     : Daniel Watrous
+    Description:
+        Hibernate mapping document for InternetLineItem class
+-->
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping package="org.simplecart.contract.salesorder">
+    <class 
+        name="SalesOrderLineItem"
+        table="SALES_ORDER_LINE_ITEM"
+        lazy="true">
+        <id 
+            name="id"
+            type="long"
+            column="SALES_ORDER_LINE_ITEM_ID"
+            access="org.simplecart.persistence.DirectSetAccessor"
+            unsaved-value="null">
+            <generator class="native"/>
+	</id>
+
+        <property   
+            name="quantity"
+            type="float"
+            column="QUANTITY"
+            not-null="true"/>
+
+        <property   
+            name="comment"
+            type="string"
+            length="500"
+            column="COMMENT"
+            not-null="true"/>
+
+        <property   
+            name="unitPrice"
+            type="float"
+            column="UNIT_PRICE"
+            not-null="true"/>
+
+        <many-to-one    
+            name="option"
+            class="org.simplecart.shopcart.catalog.InternetProductOption"
+            column="INTERNET_PRODUCT_OPTION_ID"/>
+
+    </class>
+
+</hibernate-mapping>

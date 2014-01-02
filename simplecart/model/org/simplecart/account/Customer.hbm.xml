@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Customer.hbm.xml
+    Created on : March 21, 2005
+    Author     : Daniel Watrous
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE hibernate-mapping SYSTEM 'http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd'>
+<hibernate-mapping package="org.simplecart.account">
+
+    <joined-subclass
+        name="Customer"
+        lazy="false"
+        table="CUSTOMER"
+        extends="org.simplecart.base.Party">
+        <key column="CUSTOMER_ID"/>
+
+        <property   name="phone"
+                    column="PHONE"
+                    length="255"
+                    type="string"/>
+
+        <property   name="companyName"
+                    column="COMPANY_NAME"
+                    length="255"
+                    type="string"/>
+
+        <set    name="orders"
+                table="INTERNET_ORDER"
+                inverse="true">
+                <key column="CUSTOMER_ID"/>
+                <one-to-many class="org.simplecart.contract.salesorder.InternetSalesOrder"/>
+        </set>
+
+    </joined-subclass>
+
+</hibernate-mapping>
+

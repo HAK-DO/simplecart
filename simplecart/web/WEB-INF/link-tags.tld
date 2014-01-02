@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : link-tags.xml
+    Created on : February 4, 2005, 5:27 PM
+    Author     : Daniel Watrous
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE taglib PUBLIC '-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN' 'http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd'>
+<taglib>
+
+  <tlibversion>1.0</tlibversion>
+  <jspversion>1.1</jspversion>
+  <shortname>Simple Cart Shopcart Application Link Tag Library</shortname>
+  <uri>http://www.simplecart.org</uri>
+  <info>
+    This tag library contains link functionality specific to the Simple Cart
+  </info>
+
+  <tag>
+    <name>manageAdministrator</name>
+    <tagclass>org.simplecart.webapp.tags.ManageAdministratorTag</tagclass>
+    <info>
+      Generate a URL-encoded hyperlink to the a URL made up of the
+      specified base value, plus optional query parameters that
+      select the specified Administrator object.
+
+      name     - Name of the attribute containing the specified
+                 Administrator.  [administrator]
+
+      page     - Context-relative URL of the generated link
+      
+      activity - What is the desired result of this action
+      
+    </info>
+    <attribute>
+      <name>name</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>page</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>styleClass</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>activity</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>manageCategory</name>
+    <tagclass>org.simplecart.webapp.tags.ManageCategoryTag</tagclass>
+    <info>
+      Generate a URL-encoded hyperlink to the a URL made up of the
+      specified base value, plus optional query parameters that
+      select the specified Category object.
+
+      name     - Name of the attribute containing the specified
+                 Category.  [category]
+
+      page     - Context-relative URL of the generated link
+      
+      activity - What is the desired result of this action
+      
+    </info>
+    <attribute>
+      <name>name</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>page</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>styleClass</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>activity</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>manageProduct</name>
+    <tagclass>org.simplecart.webapp.tags.ManageProductTag</tagclass>
+    <info>
+      Generate a URL-encoded hyperlink to the a URL made up of the
+      specified base value, plus optional query parameters that
+      select the specified Product object.
+
+      name     - Name of the attribute containing the specified
+                 Product.  [product]
+
+      page     - Context-relative URL of the generated link
+      
+      activity - What is the desired result of this action
+      
+    </info>
+    <attribute>
+      <name>name</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>page</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>activity</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>manageOption</name>
+    <tagclass>org.simplecart.webapp.tags.ManageOptionTag</tagclass>
+    <info>
+      Generate a URL-encoded hyperlink to the a URL made up of the
+      specified base value, plus optional query parameters that
+      select the specified Option object.
+
+      name     - Name of the attribute containing the specified
+                 Option.  [option]
+
+      page     - Context-relative URL of the generated link
+      
+      activity - What is the desired result of this action
+      
+    </info>
+    <attribute>
+      <name>name</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>page</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>activity</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  </taglib>

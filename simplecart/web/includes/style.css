@@ -1,0 +1,145 @@
+/* general copy definition */
+.copy {
+font-family: arial, helvetica, verdana, sans serif;
+color: #333333;
+font-size: 10px;
+line-height: 13px;
+}
+
+.copy_red_bold {
+  color: #CC0000;
+  font-weight: bold;
+}
+
+input, select, textarea {
+ 	font-family: Arial;
+ 	font-size : 10pt;
+ 	border-width : 1px;
+ 	border-color : #333333;
+ 	border-style : solid;
+ 	border-left-width : 1px;
+ 	border-right-width : 1px;
+ 	border-top-width : 1px;
+ 	border-bottom-width : 1px;
+}
+
+/* mattes and backgrounds */
+.white_matte {
+  background-color: #FFFFFF;
+}
+
+.black_matte {
+  background-color: #000000;
+}
+
+.background_matte {
+  background-color: #ED841E;
+}
+
+.navigation_matte {
+  background-color: #E35C15;
+}
+
+.navigation_category_matte {
+  background-color: #F4B578;
+}
+
+.header_border {
+  background-color: #666666;
+}
+
+/* general links definition */
+a {
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+}
+
+/* headings and title copy style classes */
+.heading_page {
+  font-size: 14px;
+  font-weight: bold;
+}
+.heading_step {
+font-size: 16px;
+}
+.heading_object {
+font-size: 16px;
+}
+.heading_section {
+font-size: 14px;
+}
+a.heading_link {
+font-size: 12px;
+}
+
+/* copy that identifies the purpose or content of a form field */
+.form_field_identifier {
+}
+.form_field_option {
+}
+
+/* look and feel of form elements */
+.form_field_button {
+}
+.form_field_text {
+}
+.form_field_radio {
+}
+.form_field_checkbox {
+}
+.form_field_textarea {
+}
+.form_field_select {
+}
+
+/* copy explaining or contained in tables */
+.table_column_heading {
+  /* use copy class */
+}
+.table_column_total {
+  font-weight: bold;
+}
+.table_border_column_definition {
+  border-color : #B2B2B2;
+  border-style : solid;
+  border-left-width : 0px;
+  border-right-width : 0px;
+  border-top-width : 0px;
+  border-bottom-width : 1px;
+  height: 25px;
+}
+.table_border_column_normal {
+  border-color : #B2B2B2;
+  border-style : solid;
+  border-left-width : 1px;
+  border-right-width : 0px;
+  border-top-width : 0px;
+  border-bottom-width : 1px;
+  height: 25px;
+}
+.table_border_column_end {
+  border-color : #B2B2B2;
+  border-style : solid;
+  border-left-width : 1px;
+  border-right-width : 1px;
+  border-top-width : 0px;
+  border-bottom-width : 1px;
+  height: 25px;
+}
+a.table_link {
+  text-decoration: underline;
+}
+
+/* look and feel of tables */
+.table_shading_on {
+  background-color: #FDF2E8;
+}
+.table_shading_off {
+  background-color: #FFFFFF;
+}
+.table_shading_alternate {
+}
+.table_shading_rollover {
+}

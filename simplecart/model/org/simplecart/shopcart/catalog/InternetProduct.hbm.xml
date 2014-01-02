@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Copyright (c) 2005, Daniel Watrous
+	All rights reserved.
+
+	Redistribution and use in source and binary forms, with or 
+	without modification, are governed by the license found in
+	the following places:
+	license.txt included with this distribution, or
+	http://www.simplecart.org/license.html
+	
+    Document   : InternetProduct.hbm.xml   $LastChangedRevision: 80 $ $LastChangedDate: 2005-04-13 08:34:59 +0900 (수, 13 4월 2005) $
+    Created on : March 23, 2005, 3:50 PM
+    Author     : Daniel Watrous
+    Description:
+        This document maps the InternetProduct class to the database
+-->
+
+<!DOCTYPE hibernate-mapping SYSTEM 'http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd'>
+<hibernate-mapping package="org.simplecart.shopcart.catalog">
+
+    <joined-subclass
+        name="org.simplecart.shopcart.catalog.InternetProduct"
+        extends="org.simplecart.shopcart.catalog.BaseCatalogItem"
+        table="INTERNET_PRODUCT">
+        <key column="INTERNET_PRODUCT_ID"/>
+
+		<!-- Map all option associations -->
+        <set    
+			name="productOptionAssociations"
+            table="INTERNET_ASSOCIATION"
+            inverse="true"
+            cascade="all-delete-orphan"
+			access="org.simplecart.persistence.DirectSetAccessor">
+                <key column="INTERNET_PRODUCT_OPTION_ID"/>
+                <one-to-many class="InternetAssociatedOption"/>
+        </set>
+
+		<!-- Map all category associations -->
+		<set 
+			name="productCategoryAssociations" 
+			table="INTERNET_ASSOCIATION" 
+			inverse="true" 
+			lazy="true" 
+			cascade="save-update" 
+			access="org.simplecart.persistence.DirectSetAccessor">
+			<key column="INTERNET_PRODUCT_ID"/>
+			<one-to-many class="InternetAssociatedProduct"/>
+		</set>
+
+
+    </joined-subclass>
+
+</hibernate-mapping>

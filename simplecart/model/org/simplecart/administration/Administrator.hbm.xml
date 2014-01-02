@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Administrator.hbm.xml
+    Created on : March 21, 2005
+    Author     : Daniel Watrous
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE hibernate-mapping SYSTEM 'http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd'>
+<hibernate-mapping package="org.simplecart.administration">
+
+    <joined-subclass
+        name="Administrator"
+        extends="org.simplecart.base.Party"
+        table="ADMIN">
+        <key column="ADMIN_ID"/>
+        <!--
+        <property   name="username"
+                    type="string"
+                    column="USERNAME"
+                    length="20"/>
+                    -->
+
+    </joined-subclass>
+
+</hibernate-mapping>
+

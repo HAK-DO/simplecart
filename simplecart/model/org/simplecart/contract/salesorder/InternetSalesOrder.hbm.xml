@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : InternetSalesOrder.hbm.xml
+    Created on : January 22, 2005, 6:52 PM
+    Author     : Daniel Watrous
+    Description:
+        Hibernate mapping document for InternetSalesOrder class
+-->
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping package="org.simplecart.contract.salesorder">
+    <class
+		name="InternetSalesOrder"
+		table="INTERNET_SALES_ORDER"
+		lazy="false">
+		<id 
+			name="id"
+			type="long"
+			column="INTERNET_SALES_ORDER_ID"
+			access="org.simplecart.persistence.DirectSetAccessor"
+			unsaved-value="null">
+			<generator class="native"/>
+		</id>
+
+        <property   
+			name="placedOn"
+			type="timestamp"
+			column="PLACED_ON"
+			not-null="true"/>
+
+        <property   
+			name="notes"
+			type="text"
+			column="NOTES"/>
+
+        <set
+			name="lineItems"
+			table="INTERNET_LINE_ITEM"
+			cascade="save-update">
+			<key column="INTERNET_SALES_ORDER_ID"/>
+			<one-to-many class="org.simplecart.contract.salesorder.SalesOrderLineItem"/>
+        </set>
+
+        <set
+			name="payments"
+			table="INTERNET_PAYMENT"
+			cascade="save-update">
+			<key column="INTERNET_SALES_ORDER_ID"/>
+			<one-to-many class="org.simplecart.contract.payment.InternetPayment"/>
+        </set>
+
+        <many-to-one 
+			name="address"
+			class="org.simplecart.base.Address"
+			column="ADDRESS_ID"
+			cascade="all"
+			unique="true"/>
+
+        <many-to-one
+			name="customer"
+			class="org.simplecart.account.Customer"
+			column="CUSTOMER_ID"
+			cascade="all"/>
+    </class>
+
+</hibernate-mapping>

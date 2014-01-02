@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : InternetPayment.hbm.xml
+    Created on : January 22, 2005, 6:52 PM
+    Author     : Daniel Watrous
+    Description:
+        Hibernate mapping document for InternetSalesOrder class
+-->
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping package="org.simplecart.contract.payment">
+    <class
+        name="InternetPayment"
+        table="INTERNET_PAYMENT"
+        lazy="true">
+        <id 
+            name="id"
+            type="long"
+            column="INTERNET_PAYMENT_ID"
+            access="org.simplecart.persistence.DirectSetAccessor"
+            unsaved-value="null">
+            <generator class="native"/>
+        </id>
+
+        <property   
+            name="creditCardType"
+            type="string"
+            column="CREDIT_CARD_TYPE"
+            not-null="true"/>
+
+        <property   
+            name="creditCardNumber"
+            type="string"
+            column="CREDIT_CARD_NUMBER"
+            not-null="true"/>
+
+        <property   
+            name="creditCardCVVSCode"
+            type="string"
+            column="CREDIT_CARD_CVVS_CODE"
+            not-null="true"/>
+
+        <property   
+            name="expirationDate"
+            type="string"
+            column="EXPIRATION_DATE"
+            not-null="true"/>
+
+        <property   
+            name="paymentAmount"
+            type="float"
+            column="PAYMENT_AMOUNT"/>
+
+        <property   
+            name="paymentDate"
+            type="date"
+            column="PAYMENT_DATE"/>
+
+    </class>
+
+</hibernate-mapping>

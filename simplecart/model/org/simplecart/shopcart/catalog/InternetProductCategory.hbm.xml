@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Copyright (c) 2005, Daniel Watrous
+	All rights reserved.
+
+	Redistribution and use in source and binary forms, with or 
+	without modification, are governed by the license found in
+	the following places:
+	license.txt included with this distribution, or
+	http://www.simplecart.org/license.html
+	
+    Document   : InternetProductCategory.hbm.xml  $LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4월 2005) $
+    Created on : March 23, 2005, 3:48 PM
+    Author     : Daniel Watrous
+    Description:
+        This document maps the InternetProductCategory class to the database
+-->
+<!DOCTYPE hibernate-mapping SYSTEM 
+	'http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd'>
+<hibernate-mapping package="org.simplecart.shopcart.catalog">
+
+	<joined-subclass 
+		name="InternetProductCategory" 
+		extends="org.simplecart.shopcart.catalog.BaseCatalogItem" 
+		table="INTERNET_PRODUCT_CATEGORY">
+		<key column="INTERNET_PRODUCT_CATEGORY_ID"/>
+
+		<!-- Parent can be null for root categories. -->
+		<many-to-one 
+			name="parentCategory" 
+			cascade="none" 
+			class="org.simplecart.shopcart.catalog.InternetProductCategory"
+			foreign-key="FK1_PARENT_PRODUCT_CATEGORY_ID" 
+			access="org.simplecart.persistence.DirectSetAccessor">
+			<column 
+				name="PARENT_PRODUCT_CATEGORY_ID" 
+				not-null="false"/>
+		</many-to-one>
+
+		<!-- Map all product associations -->
+		<set 
+			name="productAssociations" 
+			table="INTERNET_ASSOCIATION" 
+			inverse="true" 
+			lazy="true" 
+			cascade="save-update" 
+			access="org.simplecart.persistence.DirectSetAccessor">
+			<key column="INTERNET_PRODUCT_CATEGORY_ID"/>
+			<one-to-many class="InternetAssociatedProduct"/>
+		</set>
+
+		<!-- Map all childCategories -->
+		<set 
+			name="childProductCategories" 
+			cascade="all-delete-orphan" 
+			inverse="true" 
+			lazy="true" 
+			batch-size="10" 
+			access="org.simplecart.persistence.DirectSetAccessor">
+			<key column="PARENT_PRODUCT_CATEGORY_ID"/>
+			<one-to-many class="InternetProductCategory"/>
+		</set>
+		
+	</joined-subclass>
+
+</hibernate-mapping>

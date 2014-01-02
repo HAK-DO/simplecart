@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : struts-config.xml
+    Created on : January 12, 2005, 2:18 PM
+    Author     : Daniel Watrous
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE struts-config PUBLIC 
+    '-//Apache Software Foundation//DTD Struts Configuration 1.2//EN' 
+    'http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd'>
+
+<struts-config>
+    <display-name>
+        <![CDATA[
+        Simple Cart Shopcart Application
+        Administration Module
+        ]]>
+    </display-name>
+    <description>
+        <![CDATA[
+        A Basic Shopcart
+        ]]>
+    </description>
+
+    <!-- ********** Form Bean Definitions ********** -->
+    <form-beans>
+
+        <!-- Party Form -->
+        <form-bean  name="partyForm"
+                    type="org.simplecart.webapp.forms.PartyForm">
+            <form-property name="id" type="java.lang.Long"/>
+
+            <!-- base class attributes -->
+            <form-property name="nameFirst" type="java.lang.String"/>
+            <form-property name="nameLast" type="java.lang.String"/>
+            <form-property name="username" type="java.lang.String"/>
+            <form-property name="password" type="java.lang.String"/>
+            <form-property name="emailAddress" type="java.lang.String"/>
+
+            <!-- inherited class attributes -->
+            <form-property name="phone" type="java.lang.String"/>
+            <form-property name="companyName" type="java.lang.String"/>
+
+            <!-- associated Address class attributes -->
+            <form-property name="streetLine1" type="java.lang.String"/>
+            <form-property name="streetLine2" type="java.lang.String"/>
+            <form-property name="city" type="java.lang.String"/>
+            <form-property name="state" type="java.lang.String"/>
+            <form-property name="postalCode" type="java.lang.String"/>
+        </form-bean>
+
+        <!-- CatalogItem Form -->
+        <form-bean  name="catalogItemForm"
+                    type="org.simplecart.webapp.forms.CatalogItemForm">
+            <form-property name="id" type="java.lang.Long"/>
+            <form-property name="categoryId" type="java.lang.Long"/>
+            <form-property name="productId" type="java.lang.Long"/>
+
+            <!-- base class attributes -->
+            <form-property name="name" type="java.lang.String"/>
+            <form-property name="description" type="java.lang.String"/>
+
+            <!-- inherited class attributes -->
+            <form-property name="stockKeepingUnitIdentifier" type="java.lang.String"/>
+            <form-property name="unitPriceManufacturerSuggestedRetail" type="java.lang.String"/>
+            <form-property name="unitPriceActualRetail" type="java.lang.String"/>
+            <form-property name="unitWeightInOunces" type="java.lang.String"/>
+
+            <!-- associated SearchUtility class attributes -->
+            <form-property name="searchMetaAuthor" type="java.lang.String"/>
+            <form-property name="searchMetaKeywords" type="java.lang.String"/>
+            <form-property name="searchMetaDescription" type="java.lang.String"/>
+            <form-property name="searchMetaDate" type="java.lang.String"/>
+            <form-property name="searchMetaCopyright" type="java.lang.String"/>
+        </form-bean>
+
+        <!-- Order Form -->
+        <form-bean  name="orderForm"
+                    type="org.simplecart.webapp.forms.OrderForm">
+            <form-property name="id" type="java.lang.Long"/>
+
+            <!-- base class attributes -->
+            <form-property name="placedOn" type="java.util.Date"/>
+            <form-property name="complete" type="boolean"/>
+            <form-property name="notes" type="java.lang.String"/>
+
+            <!-- associated Address class attributes -->
+            <form-property name="streetLine1" type="java.lang.String"/>
+            <form-property name="streetLine2" type="java.lang.String"/>
+            <form-property name="city" type="java.lang.String"/>
+            <form-property name="state" type="java.lang.String"/>
+            <form-property name="postalCode" type="java.lang.String"/>
+			
+			<!-- billing Details class -->
+            <form-property name="creditCardExpirationMonth" type="java.lang.String"/>
+            <form-property name="creditCardExpirationYear" type="java.lang.String"/>
+            <form-property name="creditCardNumber" type="java.lang.String"/>
+            <form-property name="creditCardType" type="int"/>
+        </form-bean>
+
+    </form-beans>
+    
+    <!-- ********** Global Forward Definitions ********** -->
+    <global-forwards>
+        <forward name="logoff" path="/Logoff.do"/>
+        <forward name="welcome" path="/Welcome.do"/>
+    </global-forwards>
+    
+    <!-- ********** Action Mapping Definitions ********** -->
+    <action-mappings>
+
+        <action
+          path="/Welcome"
+          forward="/administration_home.jsp"/>
+
+        <!-- General Category Requests Action, including display, edit, delete, and enter -->
+        <action path="/ManageCategory"
+                type="org.simplecart.webapp.actions.administration.CategoryManageAction"
+                name="catalogItemForm"
+                scope="request"
+                parameter="activity"
+                validate="false">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="display" path="/category_display.jsp"/>
+            <forward name="enter" path="/category_manage.jsp"/>
+            <forward name="edit" path="/category_manage.jsp"/>
+            <forward name="delete" path="/category_manage.jsp"/>
+        </action>
+        
+        <!-- Category Persistence action for saving new, edited and deleted Category(s) to the database -->
+        <action path="/PersistCategory"
+                type="org.simplecart.webapp.actions.administration.CategoryPersistAction"
+                name="catalogItemForm"
+                scope="request"
+                parameter="activity"
+                input="/category_manage.jsp"
+                validate="true">
+            <forward name="failure" path="/category_manage.jsp"/>
+            <forward name="success" path="/ManageCategory.do?activity=display"/>
+        </action>
+
+        <!-- General Product Requests Action, including display, edit, delete, and enter -->
+        <action path="/ManageProduct"
+                type="org.simplecart.webapp.actions.administration.ProductManageAction"
+                name="catalogItemForm"
+                scope="request"
+                parameter="activity"
+                validate="false">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="display" path="/product_display.jsp"/>
+            <forward name="enter" path="/product_manage.jsp"/>
+            <forward name="edit" path="/product_manage.jsp"/>
+            <forward name="delete" path="/product_manage.jsp"/>
+        </action>
+        
+        <!-- Product Persistence action for saving new, edited and deleted Product(s) to the database -->
+        <action path="/PersistProduct"
+                type="org.simplecart.webapp.actions.administration.ProductPersistAction"
+                name="catalogItemForm"
+                scope="request"
+                parameter="activity"
+                input="/product_manage.jsp"
+                validate="true">
+            <forward name="failure" path="/product_manage.jsp"/>
+            <forward name="success" path="/ManageProduct.do?activity=display"/>
+        </action>
+
+        <!-- General Option Requests Action, including display, edit, delete, and enter -->
+        <action path="/ManageOption"
+                type="org.simplecart.webapp.actions.administration.OptionManageAction"
+                name="catalogItemForm"
+                scope="request"
+                parameter="activity"
+                validate="false">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="display" path="/option_display.jsp"/>
+            <forward name="enter" path="/option_manage.jsp"/>
+            <forward name="edit" path="/option_manage.jsp"/>
+            <forward name="delete" path="/option_manage.jsp"/>
+        </action>
+        
+        <!-- Option Persistence action for saving new, edited and deleted Option(s) to the database -->
+        <action path="/PersistOption"
+                type="org.simplecart.webapp.actions.administration.OptionPersistAction"
+                name="catalogItemForm"
+                scope="request"
+                parameter="activity"
+                input="/option_manage.jsp"
+                validate="true">
+            <forward name="failure" path="/option_manage.jsp"/>
+            <forward name="success" path="/ManageOption.do?activity=display"/>
+        </action>
+
+        <!-- General Admin Requests Action, including display, edit, delete, and enter -->
+        <action path="/ManageAdministrator"
+                type="org.simplecart.webapp.actions.administration.AdministratorManageAction"
+                name="partyForm"
+                scope="request"
+                parameter="activity"
+                validate="false">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="display" path="/administrator_display.jsp"/>
+            <forward name="enter" path="/administrator_manage.jsp"/>
+            <forward name="edit" path="/administrator_manage.jsp"/>
+            <forward name="delete" path="/administrator_manage.jsp"/>
+        </action>
+        
+        <!-- Admin Persistence action for saving new, edited and deleted Admin(s) to the database -->
+        <action path="/PersistAdministrator"
+                type="org.simplecart.webapp.actions.administration.AdministratorPersistAction"
+                name="partyForm"
+                scope="request"
+                parameter="activity"
+                input="/administrator_manage.jsp"
+                validate="true">
+            <forward name="failure" path="/administrator_manage.jsp"/>
+            <forward name="success" path="/ManageAdministrator.do?activity=display"/>
+        </action>
+
+        <!-- General Category Requests Action, including display, edit, delete, and enter -->
+        <action path="/ManageSalesOrder"
+                type="org.simplecart.webapp.actions.administration.SalesOrderManageAction"
+                name="orderForm"
+                scope="request"
+                parameter="activity"
+                validate="false">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="displayAll" path="/sales_order_display.jsp"/>
+            <forward name="displayDetail" path="/sales_order_display_detail.jsp"/>
+        </action>
+        
+    </action-mappings>
+    
+    <controller pagePattern="$M$P"/>
+
+    <message-resources 
+        parameter="org.simplecart.webapp.ApplicationResources"/>
+
+    <message-resources
+        parameter="org.simplecart.webapp.AdministrationApplicationResources"
+        key="administration"/>
+
+    <message-resources
+        parameter="org.simplecart.webapp.AdministrationImageResources"
+        key="adminimages"/>
+
+  <!-- ========== Plug Ins Configuration ================================== -->
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames"
+                     value="/WEB-INF/administration/validation.xml,/WEB-INF/validator-rules.xml"/>
+  </plug-in>
+
+</struts-config>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Copyright (c) 2005, Daniel Watrous
+	All rights reserved.
+
+	Redistribution and use in source and binary forms, with or 
+	without modification, are governed by the license found in
+	the following places:
+	license.txt included with this distribution, or
+	http://www.simplecart.org/license.html
+	
+    Document   : hibernate.cfg.xml   $LastChangedRevision: 113 $ $LastChangedDate: 2005-05-08 02:26:44 +0900 (일, 08 5월 2005) $
+    Created on : January 22, 2005, 8:47 PM
+    Author     : Daniel Watrous
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE hibernate-configuration PUBLIC '-//Hibernate/Hibernate Configuration DTD//EN' 'http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd'>
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Don't forget to copy your JDBC driver to the web/WEB-INF/lib/ directory! -->
+
+        <!-- Settings for a local PostgreSQL database. 
+        <property name="dialect">net.sf.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="query.substitutions">Y</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://10.0.0.40/simplecart</property>
+        <property name="connection.username">simplecart</property>
+        <property name="connection.password">simple</property>
+        -->
+
+        <!-- Settings for a local HSQL (testing) database. -->
+        <property name="dialect">net.sf.hibernate.dialect.MySQLDialect</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://10.211.55.5:3306/test</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+		
+        <property name="hibernate.max_fetch_depth">2</property>
+		
+        <!-- Use the Hibernate built-in pool for tests. -->
+        <property name="connection.pool_size">1</property>
+        <property name="hibernate.cache.provider_class">net.sf.hibernate.cache.HashtableCacheProvider</property>
+
+        <!-- Print SQL to stdout. -->
+        <property name="show_sql">true</property>
+
+        <!-- Simple Cart mapping files. -->
+        <mapping resource="org/simplecart/base/Address.hbm.xml"/>
+        <mapping resource="org/simplecart/base/Party.hbm.xml"/>
+
+        <mapping resource="org/simplecart/account/Customer.hbm.xml"/>
+
+        <mapping resource="org/simplecart/administration/Administrator.hbm.xml"/>
+
+        <mapping resource="org/simplecart/contract/salesorder/InternetSalesOrder.hbm.xml"/>
+        <mapping resource="org/simplecart/contract/salesorder/SalesOrderLineItem.hbm.xml"/>
+        <mapping resource="org/simplecart/contract/payment/InternetPayment.hbm.xml"/>
+
+        <mapping resource="org/simplecart/shopcart/catalog/BaseCatalogItem.hbm.xml"/>
+        <mapping resource="org/simplecart/shopcart/catalog/InternetProductCategory.hbm.xml"/>
+        <mapping resource="org/simplecart/shopcart/catalog/InternetProduct.hbm.xml"/>
+        <mapping resource="org/simplecart/shopcart/catalog/InternetProductOption.hbm.xml"/>
+        <mapping resource="org/simplecart/shopcart/catalog/InternetAssociation.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : struts-config.xml
+    Created on : January 12, 2005, 2:18 PM
+    Author     : Daniel Watrous
+    Description:
+        Purpose of the document follows.
+-->
+
+<!DOCTYPE struts-config PUBLIC 
+    '-//Apache Software Foundation//DTD Struts Configuration 1.2//EN' 
+    'http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd'>
+
+<struts-config>
+    <display-name>
+        <![CDATA[
+        Simple Cart Shopcart Application
+        Account Module
+        ]]>
+    </display-name>
+    <description>
+        <![CDATA[
+        A Basic Shopcart
+        ]]>
+    </description>
+
+    <!-- ********** Form Bean Definitions ********** -->
+    <form-beans>
+
+        <!-- Party Form -->
+        <form-bean  name="partyForm"
+                    type="org.simplecart.webapp.forms.PartyForm">
+            <form-property name="id" type="java.lang.Long"/>
+
+            <!-- base class attributes -->
+            <form-property name="nameFirst" type="java.lang.String"/>
+            <form-property name="nameLast" type="java.lang.String"/>
+            <form-property name="username" type="java.lang.String"/>
+            <form-property name="password" type="java.lang.String"/>
+            <form-property name="emailAddress" type="java.lang.String"/>
+
+            <!-- inherited class attributes -->
+            <form-property name="phone" type="java.lang.String"/>
+            <form-property name="companyName" type="java.lang.String"/>
+
+            <!-- associated Address class attributes -->
+            <form-property name="streetLine1" type="java.lang.String"/>
+            <form-property name="streetLine2" type="java.lang.String"/>
+            <form-property name="city" type="java.lang.String"/>
+            <form-property name="state" type="java.lang.String"/>
+            <form-property name="postalCode" type="java.lang.String"/>
+        </form-bean>
+
+        <!-- Order Form -->
+        <form-bean  name="orderForm"
+                    type="org.simplecart.webapp.forms.OrderForm">
+            <form-property name="id" type="java.lang.Long"/>
+
+            <!-- base class attributes -->
+            <form-property name="placedOn" type="java.util.Date"/>
+            <form-property name="complete" type="boolean"/>
+            <form-property name="notes" type="java.lang.String"/>
+
+            <!-- associated Address class attributes -->
+            <form-property name="streetLine1" type="java.lang.String"/>
+            <form-property name="streetLine2" type="java.lang.String"/>
+            <form-property name="city" type="java.lang.String"/>
+            <form-property name="state" type="java.lang.String"/>
+            <form-property name="postalCode" type="java.lang.String"/>
+			
+			<!-- billing Details class -->
+            <form-property name="creditCardExpirationMonth" type="java.lang.String"/>
+            <form-property name="creditCardExpirationYear" type="java.lang.String"/>
+            <form-property name="creditCardNumber" type="java.lang.String"/>
+            <form-property name="creditCardType" type="int"/>
+            <form-property name="creditCardCVVSCode" type="java.lang.String"/>
+        </form-bean>
+
+    </form-beans>
+    
+    <!-- ********** Global Forward Definitions ********** -->
+    <global-forwards>
+        <forward name="logoff" path="/Logoff.do"/>
+        <forward name="welcome" path="/Welcome.do"/>
+    </global-forwards>
+    
+    <!-- ********** Action Mapping Definitions ********** -->
+    <action-mappings>
+
+        <action
+          path="/Welcome"
+          forward="/account_details.jsp"/>
+
+        <action
+          path="/Checkout"
+          forward="/order_gather_address.jsp"/>
+
+        <!-- General Category Requests Action, including display, edit, delete, and enter -->
+        <action path="/ManageCustomer"
+                type="org.simplecart.webapp.actions.CustomerManageAction"
+                name="partyForm"
+                scope="request"
+                parameter="activity"
+                validate="false">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="display" path="/account_details.jsp"/>
+            <forward name="edit" path="/account_profile.jsp"/>
+        </action>
+        
+        <!-- Prepare Order -->
+        <action path="/PrepareOrder"
+                type="org.simplecart.webapp.actions.PrepareOrderAction"
+                name="orderForm"
+                scope="request"
+                parameter="activity"
+                validate="false">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="enter_address" path="/order_gather_address.jsp"/>
+            <forward name="enter_billing" path="/order_gather_billing.jsp"/>
+            <forward name="reivew_confirm" path="/order_review_confirm.jsp"/>
+        </action>
+        
+        <!-- Process Order -->
+        <action path="/ProcessOrder"
+                name="orderForm"
+                validate="false"
+                type="org.simplecart.webapp.actions.ProcessOrderAction">
+            <forward name="failure" path="/error.jsp"/>
+            <forward name="success" path="/order_thank_you.jsp"/>
+        </action>
+        
+    </action-mappings>
+    
+    <controller pagePattern="$M$P"/>
+
+    <message-resources
+            parameter="org.simplecart.webapp.ApplicationResources"/>
+
+  <!-- ========== Plug Ins Configuration ================================== -->
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames"
+                     value="/WEB-INF/account/validation.xml,/WEB-INF/validator-rules.xml"/>
+  </plug-in>
+
+</struts-config>
