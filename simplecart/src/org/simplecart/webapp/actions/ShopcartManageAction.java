@@ -66,11 +66,6 @@ public class ShopcartManageAction  extends DispatchAction {
                     new ActionMessage("error.databaseDAO"));
         }
         
-        System.out.println(cartForm.getOptionId());
-        System.out.println(cartForm.getOptionId());
-        System.out.println(cartForm.getOptionId());
-        System.out.println(cartForm.getOptionId());
-        System.out.println(cartForm.getOptionId());
         // find product objects and attach to request
         ProductOption option = odao.findById(cartForm.getOptionId(),false);
 

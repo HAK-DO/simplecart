@@ -104,6 +104,9 @@ public class ProcessOrderAction extends Action {
         // clear out the session
         session.invalidate();
 
+        session = request.getSession();
+        session.setAttribute(Constants.LOGGED_IN_USER_KEY, customer);
+        
         // forward along to success
         return mapping.findForward(Constants.SUCCESS_KEY);
         
