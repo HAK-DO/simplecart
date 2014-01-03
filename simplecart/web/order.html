@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>롤리키즈 주문서</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style>body { padding-top: 60px;}</style>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="./ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="./ico/favicon.png">
+  </head>
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">롤리키즈</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="#">홈</a></li>
+              <li class="active"><a href="#form">주문서</a></li>
+              <li><a href="#contact">연락처</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+	<header class="jumbotron subhead">
+	  <div class="container">
+	    <h1>주문서</h1>
+	  </div>
+	</header>    
+
+<div class="container">
+  <div class="marketing">    
+	<form method="post" id="insertIpayOrder" class="form-horizontal">
+	<small>해당 항목을 입력 하여 주문하시면 됩니다.</small>
+	<hr>
+  <div class="control-group">
+	<label class="control-label" for="name">이름</label>
+    <div class="controls"><input type="text" id="ipayServiceOrder.buyerName" name="ipayServiceOrder.buyerName" ></div>
+  </div>
+  
+  <div class="control-group">
+	<label class="control-label" for="depositname">입금자명</label>
+    <div class="controls"><input type="text" id="depositName" Name="depositName" ></div>
+  </div>
+   
+  <div class="control-group">
+	<label class="control-label" for="phone">휴대폰번호</label>
+    <div class="controls"><input type="text" id="ipayServiceOrder.buyerTelNo" name="ipayServiceOrder.buyerTelNo" ></div>
+  </div>
+  
+  <div class="control-group">
+	<label class="control-label" for="nickname">카페별명</label>
+    <div class="controls"><input type="text" id="nickName" name="nickName" ></div>
+  </div>
+ 
+  <div class="control-group">
+	<label class="control-label" for="email">이메일</label>
+    <div class="controls"><input type="text" id="buyerEmail" name="ipayServiceOrder.buyerEmail" data-placement="bottom" placeholder="Email" title="이메일주소를 넣어주세요."></div>
+  </div>
+       
+  <div class="control-group">
+  <label class="control-label" for="price">주문방법</label>
+    <div class="controls">
+		<label class="radio">
+		  <input type="radio" name="isCardPayOrder" id="card" value="true"  rel="tooltip" title="카드결제시에 4% 수수료가 본인 부담 입니다. 주문상품가격을 넣고 카드 결제하면 자동으로 계산되어 집니다. 주믄을 클릭하면 카드 결제 창으로 이동하며 결제하면 됩니다. ">
+		  카드 결제 주문
+		</label>
+		<label class="radio">
+		  <input type="radio" name="isCardPayOrder" id="acntNo" value="false" checked >
+		  계좌 이체 주문
+		</label>    
+    </div>
+  </div>
+  
+  <div class="control-group">
+	<label class="control-label" for="price">주문상품가격</label>
+    <div class="controls"><input type="text" id="itemPrice" name="ipayServiceItems[0].itemPrice" rel="tooltip" data-placement="bottom" title="택배비를 제외한 상품가격만 입력합니다.숫자만 입력해주세요."></div>
+  </div>
+            
+  <div class="control-group">
+	<label class="control-label" for="address">주소</label>
+    <div class="controls"><textarea class="span6" rows="2" id="address" name="address" ></textarea></div>
+  </div>
+    
+  <div class="control-group">
+	<label class="control-label" for="product">주문상품</label>
+    <div class="controls"><textarea class="span6" rows="6" id="itemName" name="ipayServiceItems[0].itemName" rel="tooltip" title="(제품명,사이즈, 수량, 색상등 자세히 기입해주세요 ^^)" ></textarea></div>
+  </div>
+<!-- 		email         : <input name="ipayServiceOrder.buyerEmail" value="" />   <br/> -->
+<!-- 		name          : <input name="ipayServiceOrder.buyerName" value="" />    <br/> -->
+<!-- 		cellularphone : <input name="ipayServiceOrder.buyerTelNo" value="" /> 	<br/> -->
+<!-- 		address : <input name="address" value="" /> 	<br/> -->
+<!-- 		orderDetail   : <input name="orderDetail" value="" />	<br/> -->
+<!-- 		isCardOrder   : <input type="radio" name="isCardPayOrder" value="true">카드<input type="radio" name="isCardPayOrder" value="false" checked >현금<br/><br/> -->
+		
+<!-- 		itemName      : <input name="ipayServiceItems[0].itemName" value="Levis [여말하프폭탄특가]기모후드티셔츠2종남여커플후드티셔츠,티셔츠,리바이스,긴팔티셔츠"/>	<br/> -->
+<!-- 		itemPrice     : <input name="ipayServiceItems[0].itemPrice" value="50000"/>        -->
+		    
+		<input type="hidden" name="ipayServiceItems[0].orderQty"  value="1"/>   
+		<input type="hidden" name="ipayServiceOrder.payPrice" value="32500" />                                    
+		<input type="hidden" name="ipayServiceOrder.shippingPrice" value="2500" />                                
+		<input type="hidden" name="ipayServiceOrder.shippingType" value="3" />                                    
+		<input type="hidden" name="ipayServiceOrder.paymentRule" value="0" />                                     
+		<input type="hidden" name="ipayServiceOrder.backUrl" value="http://www.lollykids.co.kr" />                
+		<input type="hidden" name="ipayServiceOrder.serviceUrl" value="http://www.lollykids.co.kr/service" />     
+		<input type="hidden" name="ipayServiceOrder.redirectUrl" value="http://www.lollykids.co.kr/redirect" />   
+		<input type="hidden" name="ipayServiceOrder.isAddressRequired" value="false" /> 	
+		<input type="hidden" name="ipayServiceItems[0].ipayItemno" value="472459520"/>                                                                              
+		<input type="hidden" name="ipayServiceItems[0].itemOptionName" value="free"/>                                                                               
+		<input type="hidden" name="ipayServiceItems[0].itemUrl" value="http://www.lollykids.co.kr/itemno"/>                                                         	
+		<button class="btn btn-primary" type="button" onclick="order()" id="orderBtn">주문</button>
+<!-- 		<a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal" id="itemRegist" >등록</a> -->
+		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="myModalLabel">주문하여 주셔서 감사합니다.</h3>
+			</div>
+			<div class="modal-body">
+				<div class="control-group">
+					 <label class="control-label" for="inputEmail">제품명</label>
+					<div class="controls">
+						 <input type="text" id="itemName" placeholder="제품명" name="itemName">
+						 <input type=hidden id="productId" placeholder="제품아이디" name="itemId">
+					</div>
+				</div>
+				<div class="control-group">
+					 <label class="control-label" for="inputPassword">가격</label>
+					<div class="controls">
+						 <input type="text" id="itemPrice" placeholder="가격" name="itemPrice" class="numbers">
+					</div>
+				</div>
+				<div class="control-group">
+					 <label class="control-label" for="inputPassword">수량</label>
+					<div class="controls">
+						 <input type="text" id="orderQty" placeholder="수량" name="orderQty" class="numbers">
+					</div>
+				</div>						
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true" id="windowClose">Close</button>
+			</div>
+		</div>		
+	</form>
+		<hr>
+		</div>
+      <footer>
+        <p>&copy; 롤리키즈 2013</p>
+      </footer>		
+	</div> <!-- /container -->
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<!-- <script src="dist/js/form2js.js"></script> -->
+<script src="javascript/form2js.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="javascript/jquery.toObject.js"></script>
+<script src="http://form2js.googlecode.com/hg/example/json2.js"></script>	
+<script src="dist/js/bootstrap.min.js"></script>	
+	<script>
+    $(function(){
+    	$('#nickname').tooltip('hide');    
+    	$('#depositName').tooltip('hide');    
+    	$('#itemName').tooltip('hide');
+    	$('#card').tooltip('hide');
+    	$('#itemPrice').tooltip('hide');
+    	$('#buyerEmail').tooltip('hide');
+        $("#itemRegist").click(function () {
+        	test();
+        });    	
+    });
+    function getContextPath() {
+        var base = document.getElementsByTagName('base')[0];
+        if (base && base.href && (base.href.length > 0)) {
+            base = base.href;
+        } else {
+            base = document.URL;
+        }
+        return base.substr(0,base.indexOf("/", base.indexOf("/", base.indexOf("//") + 2) + 1));
+    };
+    function closeOrder(){
+    	var win = window.open("","_self"); /* url = "" or "about:blank"; target="_self" */
+    	win.close();
+    }
+	function order(){ 
+		$('#orderBtn').attr('disabled', 'disabled');
+
+		if(!validateEmail($('#buyerEmail').val())){
+			$('#buyerEmail').tooltip('show');
+			$('#buyerEmail').focus();
+			$('#orderBtn').removeAttr("disabled");
+			return false;
+		}
+		if(!validationNumberOnly($('#itemPrice').val())){
+			$('#itemPrice').tooltip('show');
+			$('#itemPrice').focus();
+			$('#orderBtn').removeAttr("disabled");
+			return false;
+		}	
+		if ($('#itemName').val() == "") {
+			$('#itemName').tooltip('show');
+			$('#itemName').focus();
+			$('#orderBtn').removeAttr("disabled");
+			return false;
+		}		
+// 		return false;
+		$.ajax({
+			  headers: {'Content-Type': 'application/json'},
+	          url: getContextPath() + "/rest/insertPayOrder",
+	          type: "POST",
+	          data: JSON.stringify($('#insertIpayOrder').toObject({mode: 'first'})),
+	          dataType: "json",
+	          success: function(result) {
+	        	  if(result.cartNo < 0 ){
+	        		  alert('시스템 장애가 발생하였습니다. 담당자에게 문의하여 주십시오. 에러코드 = ' + result.cartNo);
+	        		  return false;
+	        	  }
+	        	  if(result.isCardPayOrder){
+	        	  	var url = 'https://ssl.auction.co.kr/ipay/IpayStdOrder.aspx?cartnos='+result.cartNo+'&sellerid='+result.sellerId+'&price='+result.price;
+	        	  	window.location.href = url;
+	        	  }else{
+			    		$('form').html("<div id='message'></div>");
+			            $('#message').html("<h3>주문해주셔서 감사합니다. 롤리키즈</h3>").hide().fadeIn(2000, function() {
+			            	$('#message').append("<small>미국 내 배송제품으로 교환이나 환불이 불가 합니다.<br/>바로 배송상품 외국제품은 배송기한 2주정도 소요됩니다.<br/>국민은행 정*은 639602-04-029843<br/>연락처 010-4567-7888</small>");
+			            });
+	        	  }
+	          }
+		});
+		$('#orderBtn').removeAttr("disabled");	
+	}
+	function validateEmail(elementValue){ 
+		var pattern = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+		return pattern.test(elementValue);
+	}	
+	function validationNumberOnly(elementValue){
+		var pattern = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
+		return pattern.test(elementValue);
+	}
+	</script>
+</body>
+</html>
