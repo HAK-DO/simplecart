@@ -15,12 +15,18 @@
 	<div class="col-md-6">
 		<img src="http://farm1.staticflickr.com/1/132375_0ca82ae31e.jpg" alt="">
 	</div>
-	<div class="col-md-6"> 
+	<div class="col-md-6 text-left"> 
 		<div class="features">
-			Name : <bean:write name="product" property="name" filter="true" /><br>
-			<bean:write name="product" property="searchDetails.searchMetaAuthor" filter="true" /><br>
-			<bean:write name="product" property="searchDetails.searchMetaKeywords" filter="true" /><br>
-			<p>$549.99</p>
+			<dl class="dl-horizontal">
+			  <dt class="">Name :</dt>
+			  <dd><bean:write name="product" property="name" filter="true" /></dd>
+			  <dt>Author :</dt>
+			  <dd><bean:write name="product" property="searchDetails.searchMetaAuthor" filter="true" /></dd>
+			  <dt>Keywords :</dt>
+			  <dd><bean:write name="product" property="searchDetails.searchMetaKeywords" filter="true" /></dd>
+			  <dt>Keywords :</dt>
+			  <dd>$549.99</dd>
+			</dl>
 		</div>
 		<div class="edit-buttons">
 			<a class="remove">Remove</a>

@@ -4,7 +4,7 @@
 
 <table>
     <tr>
-        <td>한글  1  
+        <td>한글  12  
             <bean:message key="welcome.greeting"/><br>
             <html:link action="/InitializeDatabase.do">Initialize Database</html:link><br>
             <html:link forward="administrationLogin"><bean:message key="adminLink.login"/></html:link><br>

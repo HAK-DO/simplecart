@@ -6,5 +6,4 @@
 
 <bean:message key="adminMessage.welcome"/><br><br>
 THANK YOU
-
 <jsp:include page="/includes/footer.jsp" />

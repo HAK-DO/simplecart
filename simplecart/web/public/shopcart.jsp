@@ -153,7 +153,7 @@
 <!-- 						</b> -->
 <!-- 					</div> -->
 <!-- 				</form> -->
-				<form class="widget">
+				<html:form action="/ManageCustomer" styleClass="widget" >
 					<h3>For new customers</h3>
 					<table class="table table-summary">
 						<tbody>
@@ -179,10 +179,20 @@
 <!-- 						<button type="submit" class="btn btn-primary"> -->
 <!-- 						  <i class="icon-user icon-white"></i> Sign in -->
 <!-- 						</button> -->
+	        <logic:empty name="loggedInUser" scope="session"> 
 						<html:link forward="beginCheckout" styleClass="btn btn-large btn-success btn-block"><bean:message key="publicLink.checkout"/></html:link>
+	        </logic:empty>
+	        <logic:notEmpty name="loggedInUser" scope="session">
+	        <html:hidden property="activity" value="login"/>
+	        						<button type="submit" class="btn btn-large btn-success btn-block">
+						  <i class="icon-user icon-white"></i> <bean:message key="publicLink.checkout"/>
+						</button>
+<%-- 						<html:link forward="beginCheckout" styleClass="btn btn-large btn-success btn-block"><bean:message key="publicLink.checkout"/></html:link> --%>
+<%-- 						<html:link forward="beginCheckout" styleClass="btn btn-large btn-success btn-block"><bean:message key="publicLink.checkout"/></html:link> --%>
+	        </logic:notEmpty>
 <!-- 					<button class="btn btn-large btn-success btn-block"> -->
 <!-- 					</button> -->
-				</form>
+				</html:form>
 			</div>
 		</div><!--end:.row-->
 	</div><!--end:.container-->

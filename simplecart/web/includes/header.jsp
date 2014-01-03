@@ -53,9 +53,16 @@
 		      	<html:link action="/LoginAcoount">Login in Account</html:link>
 	        </logic:empty>
 	        <logic:notEmpty name="loggedInUser" scope="session">
-	        	<a>
-	        		<bean:write name="loggedInUser" property="username"/>
+	        	<a href="#">
+	        	    Account Info
+<%-- 	        		<bean:write name="loggedInUser" property="username"/> --%>
 	        	</a>
+<!-- 	        	        <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."> -->
+<!--           Popover on left -->
+<!--         </button> -->
+	        	<script type="text/javascript">
+	        	
+	        	</script>
 	        </logic:notEmpty>
 <!-- 	          	<a href="/LoginAcoount">Login in Account</a> -->
 	<%--           <html:img hspace="10" vspace="10" bundle="images" pageKey="btn.login.account" border="0"/> --%>
