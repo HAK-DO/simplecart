@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//system/org/simplecart/webapp/ApplicationResources.properties=UTF-8
 encoding//web/public/product_detail.jsp=UTF-8
+encoding//web/welcome.jsp=UTF-8
 encoding/<project>=UTF-8
 encoding/model=UTF-8
 encoding/src=UTF-8
