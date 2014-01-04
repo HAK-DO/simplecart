@@ -30,9 +30,9 @@
     <tr>
         <td width="100"><bean:message bundle="administration" key="promptCatalogItem.name"/></td>
         <td width="200"><bean:message bundle="administration" key="promptCatalogItem.description"/></td>
-        <td width="175"><bean:message bundle="administration" key="promptSearchUtility.searchMetaAuthor"/></td>
-        <td width="175"><bean:message bundle="administration" key="promptSearchUtility.searchMetaKeywords"/></td>
-        <td width="175"><bean:message bundle="administration" key="promptSearchUtility.searchMetaDescription"/></td>
+<%--         <td width="175"><bean:message bundle="administration" key="promptSearchUtility.searchMetaAuthor"/></td> --%>
+<%--         <td width="175"><bean:message bundle="administration" key="promptSearchUtility.searchMetaKeywords"/></td> --%>
+<%--         <td width="175"><bean:message bundle="administration" key="promptSearchUtility.searchMetaDescription"/></td> --%>
         <td width="70"></td>
         <td width="70"></td>
     </tr>
@@ -41,9 +41,9 @@
     <tr>
         <td align="left" valign="top"><bean:write name="product" property="name" filter="true"/></td>
         <td align="left" valign="top"><bean:write name="product" property="description" filter="true"/></td>
-        <td align="left" valign="top"><bean:write name="product" property="searchDetails.searchMetaAuthor" filter="true"/></td>
-        <td align="left" valign="top"><bean:write name="product" property="searchDetails.searchMetaKeywords" filter="true"/></td>
-        <td align="left" valign="top"><bean:write name="product" property="searchDetails.searchMetaDescription" filter="true"/></td>
+<%--         <td align="left" valign="top"><bean:write name="product" property="searchDetails.searchMetaAuthor" filter="true"/></td> --%>
+<%--         <td align="left" valign="top"><bean:write name="product" property="searchDetails.searchMetaKeywords" filter="true"/></td> --%>
+<%--         <td align="left" valign="top"><bean:write name="product" property="searchDetails.searchMetaDescription" filter="true"/></td> --%>
         <td align="left" valign="top"><links:manageProduct page="/ManageProduct"><bean:message bundle="administration" key="link.edit"/></links:manageProduct></td>
         <td align="left" valign="top"><links:manageProduct page="/ManageProduct" activity="delete"><bean:message bundle="administration" key="link.delete"/></links:manageProduct></td>
     </tr>

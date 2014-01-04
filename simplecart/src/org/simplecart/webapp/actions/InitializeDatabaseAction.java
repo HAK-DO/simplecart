@@ -7,32 +7,23 @@
 package org.simplecart.webapp.actions;
 
 import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import net.sf.hibernate.tool.hbm2ddl.SchemaExport;
-
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.simplecart.account.Customer;
-import org.simplecart.administration.Administrator;
+import org.apache.struts.action.ActionForward;
+import net.sf.hibernate.tool.hbm2ddl.SchemaExport;
+
+import org.simplecart.persistence.HibernateUtility;
+
+import org.simplecart.dao.*;
 import org.simplecart.base.Address;
+import org.simplecart.shopcart.catalog.*;
+import org.simplecart.administration.Administrator;
+import org.simplecart.account.Customer;
 import org.simplecart.contract.salesorder.InternetSalesOrder;
 import org.simplecart.contract.salesorder.SalesOrderLineItem;
-import org.simplecart.dao.AdministratorDAO;
-import org.simplecart.dao.CustomerDAO;
-import org.simplecart.dao.InternetProductCategoryDAO;
-import org.simplecart.dao.InternetProductDAO;
-import org.simplecart.dao.InternetProductOptionDAO;
-import org.simplecart.dao.SalesOrderDAO;
-import org.simplecart.persistence.HibernateUtility;
-import org.simplecart.shopcart.catalog.InternetProduct;
-import org.simplecart.shopcart.catalog.InternetProductCategory;
-import org.simplecart.shopcart.catalog.InternetProductOption;
-import org.simplecart.shopcart.catalog.SearchUtility;
 
 /**
  *
@@ -123,10 +114,6 @@ public class InitializeDatabaseAction extends Action {
         category.setDescription("Test Category");
         category.setSearchDetails(searchDetails);
 
-        InternetProductCategory category1 = new InternetProductCategory();
-        category.setConsumerVisible(true);
-        category.setName("Test Category1");
-        category.setDescription("Test Category1");
         // create a product
         InternetProduct product = new InternetProduct();
         product.setConsumerVisible(true);
@@ -134,10 +121,6 @@ public class InitializeDatabaseAction extends Action {
         product.setDescription("Test Product");
         product.setSearchDetails(searchDetails);
 
-        InternetProduct product1 = new InternetProduct();
-        product.setConsumerVisible(true);
-        product.setName("Test Product1");
-        product.setDescription("Test Product1");
         // create an option
         InternetProductOption option1 = new InternetProductOption();
         option1.setConsumerVisible(true);
@@ -162,7 +145,6 @@ public class InitializeDatabaseAction extends Action {
 
         // associate category, product and option
         category.associate(product);
-        category1.associate(product1);
         product.associate(option1);
         product.associate(option2);
         
@@ -172,8 +154,7 @@ public class InitializeDatabaseAction extends Action {
         optdao.makePersistent(option2);
         proddao.makePersistent(product);
         catdao.makePersistent(category);
-        proddao.makePersistent(product1);
-        catdao.makePersistent(category1);        
+        
         // create a sample order
         InternetSalesOrder salesOrder = new InternetSalesOrder();
         salesOrder.setAddress(orderAddress);
