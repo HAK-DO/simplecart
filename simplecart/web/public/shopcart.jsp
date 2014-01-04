@@ -183,7 +183,9 @@
 						<html:link forward="beginCheckout" styleClass="btn btn-large btn-success btn-block"><bean:message key="publicLink.checkout"/></html:link>
 	        </logic:empty>
 	        <logic:notEmpty name="loggedInUser" scope="session">
-	        <html:hidden property="activity" value="login"/>
+	        <html:hidden property="activity" value="login" />
+	        <html:hidden property="password" name="loggedInUser" />
+	        <html:hidden property="username" name="loggedInUser" />
 	        						<button type="submit" class="btn btn-large btn-success btn-block">
 						  <i class="icon-user icon-white"></i> <bean:message key="publicLink.checkout"/>
 						</button>

@@ -108,4 +108,12 @@ public class Customer extends org.simplecart.base.Party {
     public void setBillingDetails(Collection billingDetails) {
         this.billingDetails = billingDetails;
     }
+
+	@Override
+	public String toString() {
+		return "Customer [phone=" + phone + ", companyName=" + companyName
+				+ ", orders=" + orders + ", billingDetails=" + billingDetails
+				+ "]";
+	}
+    
 }

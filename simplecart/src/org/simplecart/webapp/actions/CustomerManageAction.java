@@ -65,6 +65,8 @@ public class CustomerManageAction extends DispatchAction {
             HttpServletRequest request,
             HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
+        Customer customer2 = (Customer) session.getAttribute(Constants.LOGGED_IN_USER_KEY);
+
         String username = (String) PropertyUtils.getSimpleProperty(form,"username");
         String password = (String) PropertyUtils.getSimpleProperty(form,"password");
         ActionMessages errors = new ActionMessages();
