@@ -1,5 +1,5 @@
 /*
- * @(#)InternetProductOption.java $LastChangedRevision: 67 $ $LastChangedDate: 2005-04-07 13:15:22 +0900 (목, 07 4월 2005) $
+ * @(#)InternetProductOption.java $LastChangedRevision: 67 $ $LastChangedDate: 2005-04-07 13:15:22 +0900 (목, 07 4 2005) $
  * Created on April 1, 2005
  *
  * Copyright (c) 2005, Daniel Watrous
@@ -18,7 +18,7 @@ import java.util.Collection;
 
 /**
  * 
- * @version     $LastChangedRevision: 67 $ $LastChangedDate: 2005-04-07 13:15:22 +0900 (목, 07 4월 2005) $
+ * @version     $LastChangedRevision: 67 $ $LastChangedDate: 2005-04-07 13:15:22 +0900 (목, 07 4 2005) $
  * @author      Daniel Watrous
  *
  */

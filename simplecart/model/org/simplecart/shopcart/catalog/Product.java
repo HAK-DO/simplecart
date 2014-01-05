@@ -1,5 +1,5 @@
 /*
- * @(#)Product.java $LastChangedRevision: 95 $ $LastChangedDate: 2005-04-29 11:54:40 +0900 (금, 29 4월 2005) $
+ * @(#)Product.java $LastChangedRevision: 95 $ $LastChangedDate: 2005-04-29 11:54:40 +0900 (금, 29 4 2005) $
  * Created on April 1, 2005
  *
  * Copyright (c) 2005, Daniel Watrous
@@ -20,7 +20,7 @@ import java.util.Collection;
  * A Product is responsible for keeping track of its 
  * ProductOptions and its owning ProductCategory.
  *  
- * @version     $LastChangedRevision: 95 $ $LastChangedDate: 2005-04-29 11:54:40 +0900 (금, 29 4월 2005) $
+ * @version     $LastChangedRevision: 95 $ $LastChangedDate: 2005-04-29 11:54:40 +0900 (금, 29 4 2005) $
  * @author      Daniel Watrous
  *
  */

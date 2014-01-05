@@ -179,5 +179,22 @@ public class CatalogItemForm extends ValidatorActionForm {
     public void setProductId(Long productId) {
         this.productId = productId;
     }
+
+	@Override
+	public String toString() {
+		return "CatalogItemForm [activity=" + activity + ", id=" + id
+				+ ", categoryId=" + categoryId + ", productId=" + productId
+				+ ", name=" + name + ", description=" + description
+				+ ", stockKeepingUnitIdentifier=" + stockKeepingUnitIdentifier
+				+ ", unitPriceManufacturerSuggestedRetail="
+				+ unitPriceManufacturerSuggestedRetail
+				+ ", unitPriceActualRetail=" + unitPriceActualRetail
+				+ ", unitWeightInOunces=" + unitWeightInOunces
+				+ ", searchMetaAuthor=" + searchMetaAuthor
+				+ ", searchMetaKeywords=" + searchMetaKeywords
+				+ ", searchMetaDescription=" + searchMetaDescription
+				+ ", searchMetaDate=" + searchMetaDate
+				+ ", searchMetaCopyright=" + searchMetaCopyright + "]";
+	}
     
 }

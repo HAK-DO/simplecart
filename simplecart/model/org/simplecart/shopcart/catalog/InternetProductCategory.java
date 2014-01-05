@@ -1,5 +1,5 @@
 /*
- * @(#)InternetProductCategory.java $LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4월 2005) $
+ * @(#)InternetProductCategory.java $LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4 2005) $
  * Created on April 1, 2005
  *
  * Copyright (c) 2005, Daniel Watrous
@@ -21,7 +21,7 @@ import java.util.Iterator;
 /**
  * An internet oriented implementation of the interface
  * ProductCategory.
- * @version $LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4월 2005) $
+ * @version $LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4 2005) $
  * @author Daniel Watrous
  * 
  */

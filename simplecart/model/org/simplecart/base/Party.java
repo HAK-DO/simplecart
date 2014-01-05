@@ -1,5 +1,5 @@
 /*
- * @(#)Party.java $LastChangedRevision: 64 $ $LastChangedDate: 2005-04-07 09:24:13 +0900 (목, 07 4월 2005) $
+ * @(#)Party.java $LastChangedRevision: 64 $ $LastChangedDate: 2005-04-07 09:24:13 +0900 (목, 07 4 2005) $
  * Created on Apr 6, 2005
  *
  * Copyright (c) 2005, Daniel Watrous
@@ -16,7 +16,7 @@ package org.simplecart.base;
 
 /**
  * 
- * @version     $LastChangedRevision: 64 $ $LastChangedDate: 2005-04-07 09:24:13 +0900 (목, 07 4월 2005) $
+ * @version     $LastChangedRevision: 64 $ $LastChangedDate: 2005-04-07 09:24:13 +0900 (목, 07 4 2005) $
  * @author      Daniel Watrous
  *
  */

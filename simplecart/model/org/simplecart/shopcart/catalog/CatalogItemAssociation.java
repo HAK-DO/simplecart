@@ -1,5 +1,5 @@
 /*
- * @(#)CatalogItemAssociation.java $LastChangedRevision: 59 $ $LastChangedDate: 2005-04-06 13:52:56 +0900 (수, 06 4월 2005) $
+ * @(#)CatalogItemAssociation.java $LastChangedRevision: 59 $ $LastChangedDate: 2005-04-06 13:52:56 +0900 (수, 06 4 2005) $
  * Created on Apr 5, 2005
  *
  * Copyright (c) 2005, Daniel Watrous
@@ -17,7 +17,7 @@ package org.simplecart.shopcart.catalog;
 import java.util.Date;
 
 /**
- * @version		$LastChangedRevision: 59 $ $LastChangedDate: 2005-04-06 13:52:56 +0900 (수, 06 4월 2005) $
+ * @version		$LastChangedRevision: 59 $ $LastChangedDate: 2005-04-06 13:52:56 +0900 (수, 06 4 2005) $
  * @author 		Daniel Watrous
  * 
  */

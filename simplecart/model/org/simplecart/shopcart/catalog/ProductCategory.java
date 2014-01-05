@@ -1,5 +1,5 @@
 /*
- * @(#)ProductCategory.java $LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4월 2005) $
+ * @(#)ProductCategory.java $LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4 2005) $
  * Created on April 1, 2005
  *
  * Copyright (c) 2005, Daniel Watrous
@@ -19,7 +19,7 @@ package org.simplecart.shopcart.catalog;
  * A ProductCategory is responsible for keeping track of 
  * its Products and child ProductCategories.
  * 
- * @version     $LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4월 2005) $
+ * @version     $LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4 2005) $
  * @author      Daniel Watrous
  *
  */

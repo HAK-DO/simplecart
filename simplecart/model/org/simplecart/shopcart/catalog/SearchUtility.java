@@ -1,5 +1,5 @@
 /*
- * @(#)SearchUtility.java $LastChangedRevision: 59 $ $LastChangedDate: 2005-04-06 13:52:56 +0900 (수, 06 4월 2005) $
+ * @(#)SearchUtility.java $LastChangedRevision: 59 $ $LastChangedDate: 2005-04-06 13:52:56 +0900 (수, 06 4 2005) $
  * Created on April 1, 2005
  *
  * Copyright (c) 2005, Daniel Watrous
@@ -18,7 +18,7 @@ package org.simplecart.shopcart.catalog;
  * Helper class to contain all Meta Tag values for display
  * in final HTML for search engines.
  * 
- * @version     $LastChangedRevision: 59 $ $LastChangedDate: 2005-04-06 13:52:56 +0900 (수, 06 4월 2005) $
+ * @version     $LastChangedRevision: 59 $ $LastChangedDate: 2005-04-06 13:52:56 +0900 (수, 06 4 2005) $
  * @author      Daniel Watrous
  *
  */

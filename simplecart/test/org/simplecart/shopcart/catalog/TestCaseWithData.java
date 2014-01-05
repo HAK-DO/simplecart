@@ -4,6 +4,7 @@
  */
 package org.simplecart.shopcart.catalog;
 
+import org.junit.Test;
 import org.simplecart.dao.InternetProductCategoryDAO;
 import org.simplecart.dao.InternetProductDAO;
 import org.simplecart.dao.InternetProductOptionDAO;
@@ -11,7 +12,13 @@ import org.simplecart.dao.InternetProductOptionDAO;
 /**
  * @author Daniel
  */
-public class TestCaseWithData extends TestCase {
+
+public class TestCaseWithData  extends TestCase{
+
+	public TestCaseWithData(String s) {
+		super(s);
+		// TODO Auto-generated constructor stub
+	}
 
 	// Testing is limited to implementations, not interfaces
 	// create instances of Product Categories
@@ -40,16 +47,15 @@ public class TestCaseWithData extends TestCase {
 	InternetProductOption hotChocolate20Scoops;
 	InternetProductOption hotChocolate50Scoops;
 
-	public TestCaseWithData(String str) {
-		super(str);
-	}
+	
 
     /**
      * Create test data.
      *
      * @throws Exception
      */
-    protected void initData() throws Exception {
+	@Test
+    public void initData()  {
         // create DAOs
         InternetProductDAO productDAO = new InternetProductDAO(); 
         InternetProductOptionDAO optionDAO = new InternetProductOptionDAO(); 
@@ -102,7 +108,7 @@ public class TestCaseWithData extends TestCase {
         
     }
     
-    private void initCategories() {
+    public void initCategories() {
         chocolate = new InternetProductCategory ();
         ((BaseCatalogItem) chocolate).setName("Chocolate");
         ((BaseCatalogItem) chocolate).setDescription("All things chocolate!");
@@ -121,7 +127,7 @@ public class TestCaseWithData extends TestCase {
         ((BaseCatalogItem) biteSize).setDescription("All things that are Bite Size");
     }
     
-    private void initProducts() {
+    public void initProducts() {
         whiteChocChips = new InternetProduct();
         ((BaseCatalogItem) whiteChocChips).setName("White Choc Chips");
         ((BaseCatalogItem) whiteChocChips).setDescription("All kinds of White Choc Chips");
@@ -148,7 +154,7 @@ public class TestCaseWithData extends TestCase {
         ((BaseCatalogItem) hotChocolate).setConsumerVisible(true);
     }
     
-    private void initOptions() {
+    public void initOptions() {
     	whiteChips12oz = new InternetProductOption();
     	((BaseCatalogItem) whiteChips12oz).setName("whiteChips12oz");
     	((BaseCatalogItem) whiteChips12oz).setDescription("whiteChips12oz");

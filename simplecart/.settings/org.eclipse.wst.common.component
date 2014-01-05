@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/" source-path="/web" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/model"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/system"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="context-root" value="simplecart"/>
         <property name="java-output-path" value="/simplecart/bin"/>
     </wb-module>

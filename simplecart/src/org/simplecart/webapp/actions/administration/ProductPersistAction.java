@@ -49,6 +49,7 @@ public class ProductPersistAction extends DispatchAction {
         // cast my form to a useful Type
         CatalogItemForm productForm = (CatalogItemForm) form;
         
+        System.out.println(form);
         // copy form-bean values to new Stake and Address objects
         SearchUtility searchDetails = new SearchUtility();
         PropertyUtils.copyProperties(searchDetails, productForm);

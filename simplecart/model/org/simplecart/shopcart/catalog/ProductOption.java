@@ -1,5 +1,5 @@
 /*
- * @(#)ProductOption.java $LastChangedRevision: 63 $ $LastChangedDate: 2005-04-07 09:09:37 +0900 (목, 07 4월 2005) $
+ * @(#)ProductOption.java $LastChangedRevision: 63 $ $LastChangedDate: 2005-04-07 09:09:37 +0900 (목, 07 4 2005) $
  * Created on April 1, 2005
  *
  * Copyright (c) 2005, Daniel Watrous
@@ -20,7 +20,7 @@ package org.simplecart.shopcart.catalog;
  * length or weight.  A ProductOption is responsible for its
  * price and associated Products.
  * 
- * @version     $LastChangedRevision: 63 $ $LastChangedDate: 2005-04-07 09:09:37 +0900 (목, 07 4월 2005) $
+ * @version     $LastChangedRevision: 63 $ $LastChangedDate: 2005-04-07 09:09:37 +0900 (목, 07 4 2005) $
  * @author      Daniel Watrous
  *
  */

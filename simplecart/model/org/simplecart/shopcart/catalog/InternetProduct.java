@@ -1,5 +1,5 @@
 /*
- * @(#)InternetProduct.java $LastChangedRevision: 152 $ $LastChangedDate: 2006-11-07 09:59:35 +0900 (화, 07 11월 2006) $
+ * @(#)InternetProduct.java $LastChangedRevision: 152 $ $LastChangedDate: 2006-11-07 09:59:35 +0900 (화, 07 11 2006) $
  * Created on April 1, 2005
  *
  * Copyright (c) 2005, Daniel Watrous
@@ -20,7 +20,7 @@ import java.util.Iterator;
 
 /**
  * 
- * @version     $LastChangedRevision: 152 $ $LastChangedDate: 2006-11-07 09:59:35 +0900 (화, 07 11월 2006) $
+ * @version     $LastChangedRevision: 152 $ $LastChangedDate: 2006-11-07 09:59:35 +0900 (화, 07 11 2006) $
  * @author      Daniel Watrous
  *
  */

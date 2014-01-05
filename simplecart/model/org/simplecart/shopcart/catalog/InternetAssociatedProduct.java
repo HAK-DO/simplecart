@@ -1,5 +1,5 @@
 /*
- * @(#)InternetAssociatedProduct.java $LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4월 2005) $
+ * @(#)InternetAssociatedProduct.java $LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4 2005) $
  * Created on Apr 5, 2005
  *
  * Copyright (c) 2005, Daniel Watrous
@@ -17,7 +17,7 @@ package org.simplecart.shopcart.catalog;
 import org.apache.log4j.Category;
 
 /**
- * @version		$LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4월 2005) $
+ * @version		$LastChangedRevision: 74 $ $LastChangedDate: 2005-04-10 03:15:30 +0900 (일, 10 4 2005) $
  * @author 		Daniel Watrous
  * 
  */
